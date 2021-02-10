@@ -74,10 +74,19 @@ let obj = {
         }
         return this.binaryRecursive(arr, valueToFind, i/2, Math.min(i, arr.length-1)); // Use binary search to find the value
     },
-    
-    exponentialRecursive:function(){  //er
 
+    exponentialRecursive:function(arr, valueToFind, i=1){ //er
+        if(valueToFind == arr[0]){ // If the first value in the array is the value you're looking
+            return 0; // Return 0
+        }
+        // While i less than the length of the array and the element value at 
+        // position i is less than the value we're looking for
+        if(i < arr.length && valueToFind >= arr[i]){ 
+            return this.exponentialRecursive(arr, valueToFind, i*2); // Recursive call passing the double of i
+        }
+        return this.binaryRecursive(arr, valueToFind, i/2, Math.min(i, arr.length-1)); // Use binary search to find the value
     },
+
     linearRecursive:function(){   //lr
 
     },
