@@ -62,9 +62,19 @@ let obj = {
         return -1; // Return -1
     },
 
-    exponentialIterative:function(){  //ei
-
+    exponentialIterative:function(arr, valueToFind){ //ei
+        if(valueToFind == arr[0]){ // If the first value in the array is the value you're looking
+            return 0; // Return 0
+        }
+        let i=1; // Initialize i to one
+        // While i less than the length of the array and the element value at 
+        // position i is less than the value we're looking for
+        while(i < arr.length && valueToFind >= arr[i]){
+            i*=2; // Double the value of i
+        }
+        return this.binaryRecursive(arr, valueToFind, i/2, Math.min(i, arr.length-1)); // Use binary search to find the value
     },
+    
     exponentialRecursive:function(){  //er
 
     },
